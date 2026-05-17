@@ -1,0 +1,67 @@
+/* ============================================
+   reset.css
+   Removes default browser styling.
+   Uses named HTML elements, NOT the * selector.
+   ============================================ */
+
+html, body, header, nav, main, section, article,
+aside, footer, figure, figcaption,
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, li, a, button,
+input, textarea, select, label,
+form, div, span, img, hr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+/* Make semantic elements display as blocks */
+header, nav, main, section, article,
+aside, footer, figure, figcaption {
+    display: block;
+}
+
+/* Remove list styles */
+ul, ol {
+    list-style: none;
+}
+
+/* Remove link underline and colour */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Images fill their container */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Buttons and inputs inherit font */
+button, input, textarea, select {
+    font-family: inherit;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+}
+
+/* Textarea only resizes vertically */
+textarea {
+    resize: vertical;
+}
+
+/* Remove horizontal rule default border */
+hr {
+    border: 0;
+    height: 1px;
+}

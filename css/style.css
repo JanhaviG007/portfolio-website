@@ -1,0 +1,1950 @@
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* --- Base styles --- */
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: #140d1e;
+    color: #d4c0ed;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+/* Smooth transitions on all links and buttons */
+a, button {
+    transition: all 0.2s ease;
+}
+
+
+/* Header and navigation - Flexbox layout */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #0e0a17;
+    border-bottom: 1px solid #3a2060;
+    z-index: 100;
+}
+
+/* Flexbox: logo on the left, nav links on the right */
+.header-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 2rem;
+}
+
+/* Logo link - wraps the icon and JG text, links back to home page */
+a.logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+a.logo-wrap:hover {
+    opacity: 0.8;
+}
+
+/* When it is a plain div (fallback) */
+.logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.logo-icon {
+    width: 30px;
+    height: 30px;
+    border: 1.5px solid #b47fe8;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-script {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #f0eaff;
+}
+
+/* Nav pushed to the right using margin-left: auto */
+.main-nav {
+    margin-left: auto;
+}
+
+.nav-list {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-list a {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    color: #7a5fa0;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+/* Animated underline slides in on hover */
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #b47fe8;
+    transition: width 0.25s ease;
+}
+
+.nav-list a:hover {
+    color: #b47fe8;
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+/* Active page link - purple accent */
+.nav-active {
+    color: #b47fe8;
+}
+
+
+/* Hero keyframe animations - pure CSS, no JS needed */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero section - full screen welcome */
+
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #1a1128 0%, #0e0a17 55%, #1a1128 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative circuit SVG on right side */
+.circuit-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100%;
+    opacity: 0.18;
+}
+
+/* Decorative circuit SVG on left side */
+.circuit-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 60%;
+    opacity: 0.14;
+}
+
+/* Logo + title + button centred in hero */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: center;
+    animation: fadeInDown 0.7s ease both;
+}
+
+.hero-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hero-icon {
+    width: 56px;
+    height: 56px;
+    border: 2px solid #b47fe8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-script {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5rem;
+    color: #f0eaff;
+    line-height: 1;
+}
+
+.hero-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: #b47fe8;
+    animation: fadeInDown 0.7s 0.1s ease both;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 0.75rem 3.5rem;
+    border: 1.5px solid #b47fe8;
+    border-radius: 50px;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: #f0eaff;
+    animation: fadeInUp 0.7s 0.2s ease both;
+}
+
+.hero-btn:hover {
+    background-color: #b47fe8;
+    color: #0e0a17;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(180, 127, 232, 0.35);
+}
+
+/* Social icons row at bottom of hero - Flexbox */
+.hero-socials {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 3rem;
+}
+
+.social-link {
+    width: 56px;
+    height: 56px;
+    border: 1.5px solid #3a2060;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7a5fa0;
+}
+
+.social-link:hover {
+    border-color: #b47fe8;
+    color: #b47fe8;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(180, 127, 232, 0.2);
+}
+
+
+/* Shared styles used by all page sections */
+
+.page-section {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+.section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+    color: #f0eaff;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+/* Short purple underline below each heading */
+.section-rule {
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, #b47fe8, #3a2060);
+    margin-bottom: 2.5rem;
+    border-radius: 2px;
+}
+
+
+/* About section - 2 column grid (photo on left, text on right) */
+
+.about-section {
+    background-color: #140d1e;
+}
+
+/* 2-column grid: photo left, text right */
+.about-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Placeholder box where photo would go */
+.about-photo-placeholder {
+    width: 220px;
+    height: 280px;
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-photo-placeholder:hover {
+    border-color: #b47fe8;
+    box-shadow: 0 0 20px rgba(180, 127, 232, 0.2);
+}
+
+/* Actual profile photo - fills the placeholder box */
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.about-photo-placeholder:hover .about-photo {
+    transform: scale(1.03);
+}
+
+.photo-initials {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #7a5fa0;
+}
+
+.about-caption {
+    font-size: 0.85rem;
+    color: #7a5fa0;
+    text-align: center;
+}
+
+.about-subtitle {
+    font-style: italic;
+    color: #f0eaff;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.about-body {
+    font-size: 0.95rem;
+    color: #d4c0ed;
+    line-height: 1.8;
+}
+
+
+/* Experience section - 3 column grid */
+
+.experience-section {
+    background-color: #1a1128;
+}
+
+/* 3-column grid for experience cards */
+.exp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid #3a2060;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.exp-card {
+    padding: 1.8rem 1.4rem;
+    border-right: 1px solid #3a2060;
+    transition: background-color 0.2s ease;
+}
+
+.exp-card:last-child {
+    border-right: none;
+}
+
+.exp-card:hover {
+    background-color: #200e38;
+}
+
+.exp-company {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #f0eaff;
+    margin-bottom: 0.3rem;
+}
+
+.exp-role-title {
+    font-size: 0.78rem;
+    color: #b47fe8;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+}
+
+.exp-list {
+    list-style: disc;
+    padding-left: 1.1rem;
+}
+
+.exp-list li {
+    font-size: 0.82rem;
+    color: #d4c0ed;
+    line-height: 1.6;
+    margin-bottom: 0.3rem;
+}
+
+
+/* Skills section - custom bar chart using Flexbox */
+
+.skills-section {
+    background-color: #140d1e;
+}
+
+/* Outer wrapper: y-axis labels + chart side by side */
+.skills-chart-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+}
+
+/* Y-axis label column */
+.skills-y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+    padding-bottom: 36px;
+    flex-shrink: 0;
+}
+
+.skills-y-axis span {
+    font-family: 'Syne', sans-serif;
+    font-style: italic;
+    font-size: 0.72rem;
+    color: #7a5fa0;
+    white-space: nowrap;
+}
+
+/* Chart container - Flexbox row of bars */
+.skills-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 200px;
+    padding-bottom: 30px;
+    position: relative;
+    flex: 1;
+}
+
+/* Each bar group: bar on top, label below */
+.skill-bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    flex: 1;
+    height: 100%;
+}
+
+/* Bar itself - height set inline e.g. style="height:70%" */
+.skill-bar {
+    width: 18px;
+    background: linear-gradient(to top, #7a3fa0, #b47fe8);
+    border-radius: 3px 3px 0 0;
+    min-height: 4px;
+    transition: background 0.2s ease;
+}
+
+.skill-bar:hover {
+    background: linear-gradient(to top, #9460cc, #d4a8ff);
+}
+
+.skill-name {
+    font-family: 'Syne', sans-serif;
+    font-style: italic;
+    font-size: 0.58rem;
+    color: #7a5fa0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    height: 14px;
+    line-height: 14px;
+}
+
+/* Coloured category divider stripes at the bottom */
+.skills-divider {
+    position: absolute;
+    bottom: 0;
+    height: 22px;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #f0eaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+}
+
+/* Programming: 5 bars out of 12 */
+/* Programming: 7 bars out of 14 total */
+.prog-divider {
+    left: 0;
+    width: 50%;
+    background-color: #8b44d4;
+}
+
+/* Professional: 4 bars out of 14 total */
+.prof-divider {
+    left: 50%;
+    width: 28.57%;
+    background-color: #6a34b0;
+}
+
+/* Personal: 3 bars out of 14 total */
+.pers-divider {
+    left: 78.57%;
+    width: 21.43%;
+    background-color: #9b59c9;
+}
+
+
+/* Education section - 3 column grid */
+
+.education-section {
+    background-color: #1a1128;
+}
+
+/* 3-column grid for education cards */
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.edu-card {
+    padding: 1.8rem;
+    border-radius: 8px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.edu-light {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+}
+
+.edu-dark {
+    background-color: #0e0a17;
+    border: 1px solid #3a2060;
+}
+
+.edu-card:hover {
+    border-color: #b47fe8;
+    transform: translateY(-3px);
+}
+
+.edu-institution {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #f0eaff;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.edu-degree {
+    font-size: 0.88rem;
+    color: #d4c0ed;
+    margin-bottom: 0.3rem;
+}
+
+.edu-degree strong {
+    color: #b47fe8;
+}
+
+.edu-dates {
+    font-size: 0.8rem;
+    color: #7a5fa0;
+}
+
+
+/* Personal attributes - small boxes below about text */
+.attributes-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+}
+
+.attr-box {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #b47fe8;
+    background-color: #2a1a40;
+    border: 1px solid #3a2060;
+    border-radius: 20px;
+    padding: 0.3rem 0.9rem;
+    letter-spacing: 0.04em;
+}
+
+
+/* ============================================
+   INTERESTS SECTION
+   Layout: Flexbox row of cards
+   ============================================ */
+
+.interests-section {
+    background-color: #1a1128;
+}
+
+/* Flexbox: cards sit in a row, wrap on small screens */
+.interests-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+.interest-card {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 110px;
+    flex: 1;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.interest-card:hover {
+    border-color: #b47fe8;
+    transform: translateY(-4px);
+}
+
+.interest-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.interest-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: #f0eaff;
+    text-align: center;
+}
+
+
+/* Projects section - 3 column grid */
+
+.projects-section {
+    background-color: #140d1e;
+}
+
+/* 3-column grid for project cards */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    border-color: #b47fe8;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(180, 127, 232, 0.15);
+}
+
+.project-tag {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #b47fe8;
+    background-color: #2a1a40;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    width: fit-content;
+}
+
+.project-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #f0eaff;
+    line-height: 1.4;
+}
+
+.project-desc {
+    font-size: 0.85rem;
+    color: #d4c0ed;
+    line-height: 1.7;
+    flex: 1;
+}
+
+.project-link {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #b47fe8;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 1px;
+}
+
+.project-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #b47fe8;
+    transition: width 0.25s ease;
+}
+
+.project-link:hover {
+    color: #f0eaff;
+}
+
+.project-link:hover::after {
+    width: 100%;
+}
+
+
+/* ============================================
+   SECTION 11 - BLOG SECTION
+   ============================================ */
+
+.blog-section {
+    background-color: #1a1128;
+}
+
+.blog-main {
+    /* No max-width needed - the grid column controls the width */
+}
+
+/* Empty state message */
+.blog-empty {
+    font-size: 0.9rem;
+    color: #7a5fa0;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+/* + Add New Blog Post button */
+.add-post-link {
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #b47fe8;
+    border: 1.5px solid #b47fe8;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    letter-spacing: 0.05em;
+}
+
+.add-post-link:hover {
+    background-color: #b47fe8;
+    color: #0e0a17;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(180, 127, 232, 0.3);
+}
+
+/* Individual blog entry styles (used in viewBlog.php later) */
+.blog-date {
+    font-size: 0.75rem;
+    color: #7a5fa0;
+    text-align: right;
+    margin-bottom: 0.4rem;
+}
+
+.blog-entry-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #b47fe8;
+    margin-bottom: 0.4rem;
+}
+
+.blog-entry-body {
+    font-size: 0.88rem;
+    color: #d4c0ed;
+    line-height: 1.7;
+}
+
+.blog-hr {
+    background-color: #b47fe8;
+    opacity: 0.3;
+    margin: 1.2rem 0 1.5rem;
+}
+
+
+/* Login page styles */
+
+/* Full login page layout */
+.login-page {
+    min-height: 100vh;
+    background-color: #1a1128;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.login-page-section {
+    width: 100%;
+    max-width: 860px;
+    padding: 2rem;
+}
+
+.login-page-card {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+}
+
+.login-page-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: #f0eaff;
+    text-align: center;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+/* Shared form group layout */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+/* Shared input style */
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #140d1e;
+    border: 1px solid #3a2060;
+    border-radius: 8px;
+    color: #d4c0ed;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+}
+
+.form-input::placeholder {
+    color: #7a5fa0;
+}
+
+.form-input:focus {
+    border-color: #b47fe8;
+}
+
+/* Password field wrapper */
+.password-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrap .form-input {
+    padding-right: 2.5rem;
+}
+
+.pw-icon {
+    position: absolute;
+    right: 0.9rem;
+    color: #7a5fa0;
+    font-size: 0.75rem;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #7a5fa0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    font-family: 'Syne', sans-serif;
+}
+
+/* Login submit button */
+.login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    background-color: #b47fe8;
+    border-radius: 8px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    color: #0e0a17;
+}
+
+.login-btn:hover {
+    background-color: #9460cc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(180, 127, 232, 0.3);
+}
+
+/* "Back to portfolio" link */
+.login-back {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #7a5fa0;
+    margin-top: 1.2rem;
+}
+
+.login-back-link {
+    color: #b47fe8;
+}
+
+.login-back-link:hover {
+    color: #f0eaff;
+}
+
+
+/* Contact section */
+
+.contact-section {
+    background-color: #140d1e;
+}
+
+/* 1-column grid for contact info - only one column has content */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 500px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.contact-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #b47fe8;
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.contact-link {
+    color: #d4c0ed;
+}
+
+.contact-link:hover {
+    color: #b47fe8;
+}
+
+
+/* Footer - Flexbox layout */
+
+.site-footer {
+    background-color: #0e0a17;
+    border-top: 1px solid #3a2060;
+    padding: 2rem;
+}
+
+/* Flexbox: logo left, copyright centre, nav right */
+.footer-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Footer logo - also acts as a home link */
+a.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.logo-script.small {
+    font-size: 1.2rem;
+}
+
+.footer-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #f0eaff;
+}
+
+.footer-copy {
+    font-size: 0.78rem;
+    color: #7a5fa0;
+    margin-left: auto;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1.4rem;
+}
+
+.footer-nav a {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem;
+    color: #7a5fa0;
+}
+
+.footer-nav a:hover {
+    color: #b47fe8;
+}
+
+
+/* Add blog entry page styles */
+
+.add-entry-page {
+    min-height: 100vh;
+    background-color: #1a1128;
+    padding-top: 60px;
+}
+
+.add-entry-page-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.add-entry-page-header {
+    margin-bottom: 2rem;
+}
+
+.add-entry-intro {
+    font-size: 0.9rem;
+    color: #d4c0ed;
+    margin-top: 0.5rem;
+}
+
+/* The Add Blog form card (purple background) */
+.add-entry-card-full {
+    background-color: #b47fe8;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+}
+
+.add-entry-form-full {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Visible label for form fields */
+.entry-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #0e0a17;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+/* Input inside the purple card */
+.entry-input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background-color: #f0eaff;
+    border: none;
+    border-radius: 8px;
+    color: #2a1a40;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+}
+
+.entry-input::placeholder {
+    color: #8a70a8;
+}
+
+/* Textarea inside the purple card */
+.entry-textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background-color: #f0eaff;
+    border: none;
+    border-radius: 8px;
+    color: #2a1a40;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    resize: vertical;
+}
+
+.entry-textarea::placeholder {
+    color: #8a70a8;
+}
+
+/* Post and Clear buttons side by side */
+.add-entry-btns {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+.btn-post {
+    flex: 1;
+    padding: 0.7rem;
+    background-color: #0e0a17;
+    color: #f0eaff;
+    border-radius: 8px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.btn-clear {
+    flex: 1;
+    padding: 0.7rem;
+    background-color: rgba(14, 10, 23, 0.4);
+    color: #f0eaff;
+    border-radius: 8px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.btn-post:hover {
+    background-color: #1e1430;
+    transform: translateY(-1px);
+}
+
+.btn-clear:hover {
+    background-color: rgba(14, 10, 23, 0.7);
+    transform: translateY(-1px);
+}
+
+/* Back link on addEntry and inner pages */
+.entry-back {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+}
+
+
+/* ============================================
+   SECTION 16 - INNER PAGES
+   (education.html, portfolio.html, skills.html)
+   ============================================ */
+
+.inner-page-section {
+    padding-top: calc(60px + 4rem);
+}
+
+/* Large content card used on inner pages */
+.inner-card {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 16px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inner-card:hover {
+    border-color: #b47fe8;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(180, 127, 232, 0.12);
+}
+
+/* Flexbox: title on left, date/link on right */
+.inner-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.inner-card-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #f0eaff;
+    margin-bottom: 0.2rem;
+}
+
+.inner-card-sub {
+    font-size: 0.8rem;
+    color: #7a5fa0;
+}
+
+.inner-card-date {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem;
+    color: #b47fe8;
+    white-space: nowrap;
+}
+
+.inner-card-degree,
+figcaption.inner-card-degree {
+    font-size: 0.9rem;
+    color: #d4c0ed;
+    margin-bottom: 0.8rem;
+}
+
+.inner-card-degree strong {
+    color: #b47fe8;
+}
+
+.inner-card-body {
+    font-size: 0.88rem;
+    color: #d4c0ed;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+}
+
+.inner-card-list {
+    list-style: disc;
+    padding-left: 1.2rem;
+}
+
+.inner-card-list li {
+    font-size: 0.84rem;
+    color: #d4c0ed;
+    line-height: 1.6;
+    margin-bottom: 0.3rem;
+}
+
+/* Achievements section on education.html */
+.inner-sub-section {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.inner-sub-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #f0eaff;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.achieve-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.achieve-list li {
+    font-size: 0.9rem;
+    color: #d4c0ed;
+    line-height: 1.6;
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Skills detail cards on skills.html */
+.skills-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+
+/* Responsive - media queries */
+
+/* Tablet view: max width 1024px */
+@media (max-width: 1024px) {
+    .exp-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .exp-card:nth-child(2) {
+        border-right: none;
+    }
+    .exp-card:nth-child(3) {
+        border-top: 1px solid #3a2060;
+        border-right: none;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .skills-detail-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile view: max width 768px */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    .exp-grid {
+        grid-template-columns: 1fr;
+    }
+    .exp-card {
+        border-right: none;
+        border-bottom: 1px solid #3a2060;
+    }
+    .exp-card:last-child {
+        border-bottom: none;
+    }
+    .edu-grid {
+        grid-template-columns: 1fr;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .skills-detail-grid {
+        grid-template-columns: 1fr;
+    }
+    .skills-chart-wrap {
+        overflow-x: auto;
+    }
+    .skills-chart {
+        min-width: 600px;
+    }
+    .inner-card-header {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-copy {
+        margin-left: 0;
+    }
+}
+
+
+/* Inner page grid layout (education, portfolio, skills) */
+
+/* CSS Grid: main cards on left, sidebar on right */
+.inner-page-grid {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* Main column: cards stack using Flexbox with gap */
+.inner-page-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0;  /* inner-card already has margin-bottom: 1.5rem */
+}
+
+/* Sidebar column: boxes stack using Flexbox */
+.inner-page-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Info box inside the sidebar */
+.sidebar-box {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+}
+
+.sidebar-box-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: #b47fe8;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+.sidebar-box ul {
+    list-style: disc;
+    padding-left: 1rem;
+}
+
+.sidebar-box ul li {
+    font-size: 0.82rem;
+    color: #d4c0ed;
+    line-height: 1.7;
+    margin-bottom: 0.2rem;
+}
+
+
+/* Blog grid layout */
+
+/* CSS Grid: blog list on left, form on right */
+.blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    align-items: start;
+}
+
+
+/* Login page grid layout */
+
+/* CSS Grid: login form on left, info panel on right */
+.login-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Info panel on the right side of login page */
+.login-info-panel {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.login-info-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #f0eaff;
+    letter-spacing: 0.04em;
+}
+
+.login-info-text {
+    font-size: 0.88rem;
+    color: #d4c0ed;
+    line-height: 1.7;
+}
+
+.login-info-list {
+    list-style: disc;
+    padding-left: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.login-info-list li {
+    font-size: 0.84rem;
+    color: #d4c0ed;
+    line-height: 1.6;
+}
+
+
+/* Add entry page grid layout */
+
+/* CSS Grid: form on left, tips panel on right */
+.add-entry-grid {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* Tips panel on the right side of addEntry page */
+.add-entry-tips {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.add-entry-tips-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #b47fe8;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.add-entry-tips ul {
+    list-style: disc;
+    padding-left: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.add-entry-tips ul li {
+    font-size: 0.82rem;
+    color: #d4c0ed;
+    line-height: 1.6;
+}
+
+
+/* Responsive rules for the newer grid sections */
+
+@media (max-width: 1024px) {
+    .inner-page-grid {
+        grid-template-columns: 1fr;
+    }
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    .login-grid {
+        grid-template-columns: 1fr;
+    }
+    .add-entry-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .inner-page-grid {
+        grid-template-columns: 1fr;
+    }
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    .login-grid {
+        grid-template-columns: 1fr;
+    }
+    .add-entry-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Blog aside box */
+
+.blog-aside-box {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 12px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.blog-aside-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #b47fe8;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.blog-aside-text {
+    font-size: 0.85rem;
+    color: #d4c0ed;
+    line-height: 1.6;
+}
+
+
+/* --- Blog Post Card Styles (Phase 2) --- */
+
+.blog-post-card {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-post-card:hover {
+    border-color: #b47fe8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(180, 127, 232, 0.15);
+}
+
+.blog-post-header {
+    margin-bottom: 1rem;
+}
+
+.blog-post-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.blog-post-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #f0eaff;
+    margin-bottom: 0.5rem;
+    flex: 1;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: rgba(255, 107, 107, 0.1);
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    padding: 0;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.delete-btn:hover {
+    background-color: rgba(255, 107, 107, 0.2);
+    border-color: #ff8888;
+    color: #ff8888;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.2);
+}
+
+.delete-btn:active {
+    transform: scale(0.95);
+}
+
+.blog-post-date {
+    font-size: 0.85rem;
+    color: #b47fe8;
+    font-style: italic;
+}
+
+.blog-post-body {
+    font-size: 0.95rem;
+    color: #d4c0ed;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 0;
+}
+
+.blog-post-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+/* View More Button */
+.view-more-btn {
+    background-color: transparent;
+    border: 1px solid #b47fe8;
+    color: #b47fe8;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Syne', sans-serif;
+}
+
+.view-more-btn:hover {
+    background-color: #b47fe8;
+    color: #140d1e;
+    box-shadow: 0 2px 8px rgba(180, 127, 232, 0.3);
+}
+
+.view-more-btn:active {
+    transform: scale(0.98);
+}
+
+/* Blog filter */
+.blog-filter-container {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.blog-filter-label {
+    font-weight: 600;
+    color: #d4c0ed;
+    font-size: 0.95rem;
+}
+
+.blog-filter-select {
+    padding: 0.6rem 1rem;
+    border: 1px solid #3a2060;
+    border-radius: 8px;
+    background-color: #1e1430;
+    color: #d4c0ed;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.blog-filter-select:hover {
+    border-color: #b47fe8;
+}
+
+/* Blog aside */
+.blog-aside-box {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.blog-aside-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f0eaff;
+    margin-bottom: 0.8rem;
+}
+
+.blog-aside-text {
+    font-size: 0.95rem;
+    color: #d4c0ed;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* --- Field validation error highlight (used by addEntry.js) ---
+   Applied via JavaScript when a required field is left blank on submit */
+.field-invalid {
+    border-color: #ff6b6b !important;
+    background-color: rgba(255, 107, 107, 0.1) !important;
+}
+
+/* ============================================
+   BLOG PAGE wrapper (viewBlog.php)
+   ============================================ */
+.blog-page {
+    min-height: 100vh;
+    background-color: #1a1128;
+    padding-top: 60px;
+}
+
+
+/* ============================================
+   PREVIEW BUTTON (addEntry.php)
+   Styled consistently alongside .btn-post and .btn-clear
+   ============================================ */
+.btn-preview {
+    flex: 1;
+    padding: 0.7rem;
+    background-color: #3a2060;
+    color: #f0eaff;
+    border: 1.5px solid #b47fe8;
+    border-radius: 8px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.btn-preview:hover {
+    background-color: #4a2a80;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(180, 127, 232, 0.25);
+}
+
+
+/* ============================================
+   PREVIEW MODAL (addEntry.php - Extra Feature)
+   Full-screen overlay showing a post preview
+   with Publish Post and Back to Edit options
+   ============================================ */
+
+/* Overlay covers the full viewport */
+.preview-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 10, 23, 0.85);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Modal card */
+.preview-modal-content {
+    background-color: #1e1430;
+    border: 1px solid #3a2060;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 720px;
+    max-height: 85vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal header row: title + close button */
+.preview-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem 1rem;
+    border-bottom: 1px solid #3a2060;
+}
+
+.preview-modal-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #f0eaff;
+    letter-spacing: 0.04em;
+}
+
+/* × close button */
+.preview-close {
+    background: none;
+    border: 1px solid #3a2060;
+    color: #7a5fa0;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.preview-close:hover {
+    border-color: #b47fe8;
+    color: #b47fe8;
+}
+
+/* Modal body: the post preview card */
+.preview-modal-body {
+    padding: 1.5rem 2rem;
+    flex: 1;
+}
+
+.preview-post-card {
+    background-color: #140d1e;
+    border: 1px solid #3a2060;
+    border-radius: 12px;
+    padding: 1.8rem;
+}
+
+.preview-post-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #f0eaff;
+    margin-bottom: 0.8rem;
+}
+
+.preview-post-body {
+    font-size: 0.92rem;
+    color: #d4c0ed;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 1rem;
+}
+
+.preview-post-date {
+    font-size: 0.8rem;
+    color: #b47fe8;
+    font-style: italic;
+}
+
+/* Modal footer: action buttons */
+.preview-modal-footer {
+    display: flex;
+    gap: 0.8rem;
+    padding: 1rem 2rem 1.5rem;
+    border-top: 1px solid #3a2060;
+}
+
+/* Responsive: stack modal buttons on mobile */
+@media (max-width: 768px) {
+    .preview-modal {
+        padding: 1rem;
+    }
+    .preview-modal-content {
+        max-height: 95vh;
+    }
+    .preview-modal-footer {
+        flex-direction: column;
+    }
+}
