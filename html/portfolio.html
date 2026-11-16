@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects - Janhavi Gavali</title>
-    <meta name="description" content="Projects by Janhavi Gavali including a portfolio website, Java quiz application, and data analysis of Wikipedia clickstream and ChatGPT trends." />
+    <meta name="description" content="Software and web-development projects by Janhavi Gavali, second-year Computer Science student at Queen Mary University of London." />
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/summer-theme.css" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -27,13 +28,17 @@
             </a>
             <nav class="main-nav" aria-label="Primary navigation">
                 <ul class="nav-list">
-                    <li><a href="../index.php">About me</a></li>
+                    <li><a href="../index.php#home">Home</a></li>
+                    <li><a href="../index.php#about">About</a></li>
                     <li><a href="../index.php#experience">Experience</a></li>
+                    <li><a href="../index.php#leadership">Leadership</a></li>
                     <li><a href="skills.html">Skills</a></li>
                     <li><a href="education.html">Education</a></li>
-                    <li><a href="../index.php#interests">Interests</a></li>
+                    <li><a href="../index.php#awards">Awards</a></li>
                     <li><a href="portfolio.html" class="nav-active">Projects</a></li>
+                    <li><a href="../index.php#contact">Contact</a></li>
                     <li><a href="../index.php#blog-section">Blog</a></li>
+                    <li><a href="../login.php">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -53,68 +58,94 @@
                 <!-- Main column -->
                 <div class="inner-page-main">
 
-                    <!-- Portfolio Website -->
+                    <article class="inner-card featured-project">
+                        <div class="inner-card-header">
+                            <div>
+                                <span class="project-tag">Featured · Full-stack web application</span>
+                                <h2 class="inner-card-title">GroupTrip Planner</h2>
+                            </div>
+                        </div>
+                        <p class="inner-card-body">
+                            A group trip management application for organising trips and managing shared
+                            expenses. Users can authenticate, create and view trips, manage trip details
+                            and members, record and split expenses, and review budget summaries. Supabase
+                            provides database integration, with an Edge Function for protected user lookup.
+                        </p>
+                        <ul class="inner-card-list">
+                            <li>Technologies: React, Vite, JavaScript, Supabase</li>
+                            <li>Trip creation and member management</li>
+                            <li>Expense tracking, splitting and budget summaries</li>
+                        </ul>
+                        <a href="https://github.com/JanhaviG007/grouptrip-planner" target="_blank" rel="noopener noreferrer" class="project-link project-action">View on GitHub <span aria-hidden="true">&rarr;</span></a>
+                    </article>
+
+                    <article class="inner-card featured-project">
+                        <div class="inner-card-header">
+                            <div>
+                                <span class="project-tag">Women in STEM Hackathon · Team HackMates · March 2026</span>
+                                <h2 class="inner-card-title">Wikipedia × ChatGPT Topic Intelligence</h2>
+                            </div>
+                        </div>
+                        <p class="inner-card-body">
+                            Investigated reader navigation after Wikipedia’s ChatGPT article, analysing more
+                            than 50,000 clickstream records across 28 articles as part of a team project.
+                            Applied TF-IDF, LDA topic modelling and Ridge regression, identifying 7 latent
+                            topic clusters (R² = 0.41). Network analysis across 7,343 graph edges identified
+                            “Large Language Model” as the most central page.
+                        </p>
+                        <ul class="inner-card-list">
+                            <li>Methods: TF-IDF, LDA, Ridge regression, PageRank and HITS</li>
+                            <li>Explored reader interest across AI industry, safety, research and policy themes</li>
+                            <li>Presented findings collaboratively as Team HackMates</li>
+                        </ul>
+                    </article>
+
+                    <article class="inner-card">
+                        <div class="inner-card-header">
+                            <div>
+                                <h2 class="inner-card-title">Typing Race Simulator</h2>
+                                <span class="project-tag">Java · Desktop application</span>
+                            </div>
+                        </div>
+                        <p class="inner-card-body">
+                            A Java typing-race simulation with a graphical interface, race setup and a live
+                            race display. It includes screens for race results and personal bests, with
+                            attention to clear user interaction and interface design.
+                        </p>
+                        <p class="inner-card-body"><strong>Technologies:</strong> Java, Swing</p>
+                        <a href="https://github.com/JanhaviG007/TypingRaceSimulator" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub <span aria-hidden="true">&rarr;</span></a>
+                    </article>
+
                     <article class="inner-card">
                         <div class="inner-card-header">
                             <div>
                                 <h2 class="inner-card-title">Portfolio Website</h2>
-                                <span class="project-tag">Web Development</span>
+                                <span class="project-tag">Web Development · University project</span>
                             </div>
-                            <a href="../index.php" target="_blank" class="project-link">View website &rarr;</a>
                         </div>
                         <p class="inner-card-body">
-                            A personal portfolio site built with HTML5, CSS and PHP as part of the ECS417U
-                            Fundamentals of Web Technology module at Queen Mary University of London.
-                            Features a responsive design, semantic HTML5 structure, CSS Grid and Flexbox layouts,
-                            and a blog with PHP-driven authentication and database connectivity.
+                            A university web-development project demonstrating frontend development,
+                            PHP backend functionality, MySQL database integration and responsive design.
                         </p>
                         <ul class="inner-card-list">
-                            <li>Technologies: HTML5, CSS3, JavaScript, PHP, MySQL</li>
-                            <li>Responsive design using media queries</li>
-                            <li>Login system with PHP session management</li>
+                            <li>Technologies: HTML, CSS, JavaScript, PHP and MySQL</li>
+                            <li>Includes an authenticated, database-backed blog</li>
                         </ul>
+                        <a href="../index.php" class="project-link">View website <span aria-hidden="true">&rarr;</span></a>
                     </article>
 
-                    <!-- Java Quiz -->
                     <article class="inner-card">
                         <div class="inner-card-header">
                             <div>
-                                <h2 class="inner-card-title">Simple Quiz - Java</h2>
+                                <h2 class="inner-card-title">Simple Quiz</h2>
                                 <span class="project-tag">Java</span>
                             </div>
-                            <a href="https://github.com/JanhaviG007" target="_blank" class="project-link">View on GitHub &rarr;</a>
                         </div>
                         <p class="inner-card-body">
-                            A command-line quiz application built in Java. Tests the user with multiple-choice
-                            questions, tracks the score throughout, and displays a final result summary at the end.
-                            Demonstrates object-oriented programming principles in Java.
+                            A command-line Java quiz with multiple-choice questions, score tracking
+                            and a final result summary.
                         </p>
-                        <ul class="inner-card-list">
-                            <li>Technologies: Java</li>
-                            <li>Multiple-choice questions with score tracking</li>
-                            <li>Command-line interface</li>
-                        </ul>
-                    </article>
-
-                    <!-- Wikipedia Clickstream and ChatGPT Trends -->
-                    <article class="inner-card">
-                        <div class="inner-card-header">
-                            <div>
-                                <h2 class="inner-card-title">Wikipedia Clickstream &amp; ChatGPT Trends</h2>
-                                <span class="project-tag">Data Analysis</span>
-                            </div>
-                            <a href="https://github.com/JanhaviG007" target="_blank" class="project-link">View on GitHub &rarr;</a>
-                        </div>
-                        <p class="inner-card-body">
-                            A data analysis project exploring Wikipedia clickstream patterns alongside
-                            changes in ChatGPT search trends over time. Uses Python for data processing,
-                            cleaning, and visualisation to identify correlations and insights.
-                        </p>
-                        <ul class="inner-card-list">
-                            <li>Technologies: Python, Pandas, Matplotlib</li>
-                            <li>Wikipedia clickstream dataset analysis</li>
-                            <li>ChatGPT search trend comparison and visualisation</li>
-                        </ul>
+                        <a href="https://github.com/JanhaviG007/simple-quiz-java" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub <span aria-hidden="true">&rarr;</span></a>
                     </article>
 
                 </div>
@@ -124,17 +155,19 @@
                     <div class="sidebar-box">
                         <p class="sidebar-box-title">Technologies</p>
                         <ul>
-                            <li>HTML5 &amp; CSS3</li>
-                            <li>JavaScript</li>
-                            <li>Java</li>
-                            <li>Python</li>
-                            <li>PHP &amp; MySQL</li>
+                            <li>React, Vite and JavaScript</li>
+                            <li>Python and data analysis</li>
+                            <li>TF-IDF, LDA and network analysis</li>
+                            <li>Supabase</li>
+                            <li>Java and Swing</li>
+                            <li>HTML, CSS and PHP</li>
+                            <li>MySQL</li>
                         </ul>
                     </div>
                     <div class="sidebar-box">
                         <p class="sidebar-box-title">GitHub</p>
                         <ul>
-                            <li><a href="https://github.com/JanhaviG007" target="_blank" class="project-link">github.com/JanhaviG007</a></li>
+                            <li><a href="https://github.com/JanhaviG007" target="_blank" rel="noopener noreferrer" class="project-link">github.com/JanhaviG007</a></li>
                         </ul>
                     </div>
                 </aside>
@@ -158,10 +191,14 @@
             </a>
             <p class="footer-copy">&copy; 2026 Janhavi Gavali. All rights reserved.</p>
             <nav class="footer-nav">
-                <a href="../index.php">About</a>
+                <a href="../index.php#about">About</a>
+                <a href="../index.php#experience">Experience</a>
+                <a href="../index.php#leadership">Leadership</a>
                 <a href="skills.html">Skills</a>
                 <a href="education.html">Education</a>
+                <a href="../index.php#awards">Awards</a>
                 <a href="portfolio.html">Projects</a>
+                <a href="../index.php#contact">Contact</a>
                 <a href="../index.php#blog-section">Blog</a>
             </nav>
         </div>

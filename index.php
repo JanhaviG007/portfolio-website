@@ -33,12 +33,16 @@ $conn->close();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Janhavi Gavali - Portfolio</title>
-    <meta name="description" content="Portfolio of Janhavi Gavali, BSc Computer Science student at Queen Mary University of London, specialising in AI, machine learning and cybersecurity." />
+    <title>Janhavi Gavali | Computer Science Student</title>
+    <meta name="description" content="Janhavi Gavali is a second-year Computer Science student at Queen Mary University of London, building software projects and developing experience in technology." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Janhavi Gavali | Computer Science Student" />
+    <meta property="og:description" content="Portfolio of Janhavi Gavali, second-year Computer Science student at Queen Mary University of London." />
     <!-- Reset stylesheet -->
     <link rel="stylesheet" href="css/reset.css" />
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/summer-theme.css" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
@@ -64,19 +68,22 @@ $conn->close();
             <!-- Navigation links -->
             <nav class="main-nav" aria-label="Primary navigation">
                 <ul class="nav-list">
-                    <li><a href="index.php">About me</a></li>
-                    <li><a href="index.php#experience">Experience</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
                     <li><a href="html/skills.html">Skills</a></li>
                     <li><a href="html/education.html">Education</a></li>
-                    <li><a href="index.php#interests">Interests</a></li>
+                    <li><a href="#awards">Awards</a></li>
                     <li><a href="html/portfolio.html">Projects</a></li>
-                    <li><a href="index.php#blog-section">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#blog-section">Blog</a></li>
                     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
-                        <li style="color: #b47fe8; margin-left: auto;">Welcome, <?php echo htmlspecialchars(explode('@', $_SESSION['user_email'])[0]); ?></li>
+                        <li class="nav-welcome">Welcome, <?php echo htmlspecialchars(explode('@', $_SESSION['user_email'])[0]); ?></li>
                         <li><a href="addEntry.php">Add Post</a></li>
-                        <li><a href="logout.php" style="color: #b47fe8;">Logout</a></li>
+                        <li><a href="logout.php">Logout</a></li>
                     <?php else: ?>
-                        <li style="margin-left: auto;"><a href="login.php">Login</a></li>
+                        <li><a href="login.php">Login</a></li>
                     <?php endif; ?>
                 </ul>
             </nav>
@@ -120,68 +127,20 @@ $conn->close();
             </svg>
         </div>
 
-        <!-- Logo, welcome title, login button -->
+        <!-- Portfolio introduction and visitor actions -->
         <div class="hero-content">
-
-            <!-- figure and figcaption are semantic HTML5 elements -->
-            <figure class="hero-logo">
-                <span class="hero-icon">
-                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                        <rect x="2" y="2" width="32" height="24" rx="3" stroke="#b47fe8" stroke-width="1.8"/>
-                        <line x1="2"  y1="30" x2="34" y2="30" stroke="#b47fe8" stroke-width="1.8"/>
-                        <line x1="18" y1="26" x2="18" y2="30" stroke="#b47fe8" stroke-width="1.8"/>
-                        <path d="M12 14L17 19L24 11" stroke="#b47fe8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </span>
-                <figcaption class="hero-script">Janhavi Gavali</figcaption>
-            </figure>
-
-            <h1 class="hero-title">Welcome to my portfolio</h1>
-
-            <!-- Login button -->
-            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
-                <a href="addEntry.php" class="hero-btn">ADD POST</a>
-            <?php else: ?>
-                <a href="login.php" class="hero-btn">LOGIN</a>
-            <?php endif; ?>
-
-        </div>
-
-        <!-- Social media icon links -->
-        <div class="hero-socials">
-
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/janhavii._fr/" target="_blank" class="social-link" aria-label="Instagram">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5"/>
-                    <circle cx="12" cy="12" r="5"/>
-                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-                </svg>
-            </a>
-
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/profile.php?id=100015959791867" target="_blank" class="social-link" aria-label="Facebook">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5"/>
-                    <path d="M15 2h-2a4 4 0 0 0-4 4v3H7v4h2v8h4v-8h3l1-4h-4V6a1 1 0 0 1 1-1h3z"/>
-                </svg>
-            </a>
-
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/janhavi-gavali-717537388/" target="_blank" class="social-link" aria-label="LinkedIn">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5"/>
-                    <path d="M8 11v5M8 8v.01M12 16v-5M12 11a3 3 0 0 1 6 0v5"/>
-                </svg>
-            </a>
-
-            <!-- GitHub -->
-            <a href="https://github.com/JanhaviG007" target="_blank" class="social-link" aria-label="GitHub">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                </svg>
-            </a>
-
+            <p class="hero-eyebrow">Queen Mary University of London</p>
+            <h1 class="hero-title">Janhavi Gavali</h1>
+            <p class="hero-role">Second-Year Computer Science Student <span aria-hidden="true">|</span> Developer</p>
+            <p class="hero-intro">
+                I build useful software and explore how data and technology can solve real-world problems. My experience spans development, research, student leadership and community volunteering.
+            </p>
+            <div class="hero-actions">
+                <a href="#portfolio-projects" class="hero-btn hero-btn-primary">View Projects</a>
+                <a href="https://github.com/JanhaviG007" class="hero-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/janhavi-gavali/" class="hero-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="#contact" class="hero-btn">Get in Touch</a>
+            </div>
         </div>
 
     </section>
@@ -208,22 +167,16 @@ $conn->close();
                 <article>
                     <h2 class="section-title">ABOUT</h2>
                     <div class="section-rule"></div>
-                    <p class="about-subtitle"><em>BSc Computer Science student at Queen Mary University of London.</em></p>
+                    <p class="about-subtitle">Second-year BSc Computer Science student at Queen Mary University of London.</p>
                     <p class="about-body">
-                        Motivated BSc Computer Science student at Queen Mary University of London with
-                        strong interests in artificial intelligence, machine learning, and cybersecurity.
-                        Experienced in software development through an industry internship, with proven
-                        problem-solving, teamwork, and communication skills. Actively seeking opportunities
-                        to apply technical knowledge in real-world and international academic or professional
-                        environments.
+                        I’m a second-year BSc Computer Science student at Queen Mary University of London, interested in building useful software and exploring data-led solutions. Through projects, a software development internship and student leadership, I’ve developed a practical, collaborative approach to problem-solving.
                     </p>
 
-                    <!-- Personal attributes displayed as small boxes -->
                     <div class="attributes-row">
-                        <span class="attr-box">Proactive &amp; Self-motivated</span>
-                        <span class="attr-box">Ethical</span>
-                        <span class="attr-box">Analytical</span>
-                        <span class="attr-box">Team-Oriented</span>
+                        <span class="attr-box">Software Development</span>
+                        <span class="attr-box">Web Development</span>
+                        <span class="attr-box">Research &amp; Data</span>
+                        <span class="attr-box">Problem Solving</span>
                     </div>
                 </article>
 
@@ -237,135 +190,92 @@ $conn->close();
             <h2 class="section-title">EXPERIENCE</h2>
             <div class="section-rule"></div>
 
-            <!-- CSS Grid: 3 columns -->
             <div class="exp-grid">
 
                 <article class="exp-card">
-                    <h3 class="exp-company">ESDS Software Solution Limited</h3>
-                    <p class="exp-role-title">Intern - Software Division Department</p>
+                    <h3 class="exp-company">Software Development Intern</h3>
+                    <p class="exp-role-title">ESDS Software Solution Limited</p>
                     <ul class="exp-list">
-                        <li>Developed and deployed software solutions using Python and PHP.</li>
-                        <li>Interacted with clients to understand technical requirements and deliver effective solutions.</li>
-                        <li>Collaborated with cross-functional teams to meet project goals and deadlines.</li>
+                        <li>Developed software solutions using Python and PHP.</li>
+                        <li>Worked with clients and cross-functional teams to understand requirements and deliver solutions.</li>
                         <li>Prepared technical documentation for implemented systems.</li>
-                        <li>Gained exposure to emerging technologies through internal training sessions.</li>
                     </ul>
                 </article>
 
                 <article class="exp-card">
-                    <h3 class="exp-company">Queen Mary University of London</h3>
-                    <p class="exp-role-title">President - QM North Star Society (2025 - Present)</p>
+                    <h3 class="exp-company">Invigilator</h3>
+                    <p class="exp-role-title">LONdon IT Training · September 2026</p>
                     <ul class="exp-list">
-                        <li>Lead and manage a student society, organising events and activities for members.</li>
-                        <li>Coordinate with QMSU and committee members to plan initiatives and promote engagement.</li>
-                        <li>Developed leadership, organisation, and communication skills in a multicultural setting.</li>
-                    </ul>
-                </article>
-
-                <article class="exp-card">
-                    <h3 class="exp-company">Volunteering &amp; Community</h3>
-                    <p class="exp-role-title">University Events &amp; Mile End Park Run</p>
-                    <ul class="exp-list">
-                        <li>Supported university-led volunteering initiatives, contributing to community-focused events.</li>
-                        <li>Assisted with event setup, coordination, and participant support during Mile End Park Run.</li>
-                        <li>Demonstrated teamwork, reliability, and commitment to community engagement.</li>
+                        <li>Supported exam sessions with candidate checks, seating and room supervision.</li>
+                        <li>Managed examination materials, attendance and incident records in line with procedures.</li>
                     </ul>
                 </article>
 
             </div>
         </section>
 
+        <section id="leadership" class="page-section leadership-section">
+            <h2 class="section-title">LEADERSHIP &amp; VOLUNTEERING</h2>
+            <div class="section-rule"></div>
+            <div class="leadership-grid">
+                <article class="leadership-item">
+                    <h3 class="leadership-role">Secretary General</h3>
+                    <p class="leadership-org">QM Bollywood Dance Society · 2026–Present</p>
+                    <p>Coordinate rehearsals, performances and events for 30+ members, and manage society communications.</p>
+                </article>
+                <article class="leadership-item">
+                    <h3 class="leadership-role">President</h3>
+                    <p class="leadership-org">QM North Star Society · Sep 2025–Jun 2026</p>
+                    <p>Led a multicultural society of 25+ members and planned inclusive events with QMSU and the committee.</p>
+                </article>
+            </div>
+            <article class="volunteering-card">
+                <p class="volunteering-summary">QMSU Volunteer Champion · Community and STEM outreach</p>
+                <p class="volunteering-body">
+                    My volunteering includes customer and mobility support at Queen Elizabeth Olympic Park,
+                    retail support at St Joseph’s Hospice, STEM outreach as a STEM Ambassador, and community
+                    activities with GOSH Charity, Solidarity Sports and Mile End parkrun. I have also supported
+                    QMSU Language Speaking Practice through informal English and Hindi conversation with international students.
+                </p>
+            </article>
+        </section>
 
-        <!-- Skills bar chart -->
         <section id="skills" class="page-section skills-section">
             <h2 class="section-title">SKILLS</h2>
             <div class="section-rule"></div>
 
-            <div class="skills-chart-wrap">
-
-                <!-- Y-axis labels -->
-                <div class="skills-y-axis">
-                    <span>expert -</span>
-                    <span>advanced -</span>
-                    <span>intermediate -</span>
-                    <span>beginner -</span>
-                </div>
-
-                <!-- Bar chart (Flexbox row) -->
-                <div class="skills-chart">
-
-                    <!-- Programming: 7 bars (Python, Java, PHP, HTML, CSS, JS, MySQL) -->
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 90%;"></div>
-                        <span class="skill-name">Python</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 50%;"></div>
-                        <span class="skill-name">Java</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 70%;"></div>
-                        <span class="skill-name">PHP</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 92%;"></div>
-                        <span class="skill-name">HTML</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 90%;"></div>
-                        <span class="skill-name">CSS</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 80%;"></div>
-                        <span class="skill-name">JS</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 75%;"></div>
-                        <span class="skill-name">MySQL</span>
-                    </div>
-
-                    <!-- Programming category label -->
-                    <div class="skills-divider prog-divider">Programming</div>
-
-                    <!-- Professional: 4 bars -->
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 80%;"></div>
-                        <span class="skill-name">Problem Solving</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 65%;"></div>
-                        <span class="skill-name">Teamwork</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 90%;"></div>
-                        <span class="skill-name">Time Mgmt</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 60%;"></div>
-                        <span class="skill-name">Tech Docs</span>
-                    </div>
-
-                    <!-- Professional category label -->
-                    <div class="skills-divider prof-divider">Professional</div>
-
-                    <!-- Personal: 3 bars -->
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 60%;"></div>
-                        <span class="skill-name">Leadership</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 80%;"></div>
-                        <span class="skill-name">Analytical</span>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar" style="height: 55%;"></div>
-                        <span class="skill-name">Communication</span>
-                    </div>
-
-                    <!-- Personal category label -->
-                    <div class="skills-divider pers-divider">Personal</div>
-
-                </div>
+            <div class="skills-detail-grid">
+                <article class="skill-category">
+                    <h3 class="inner-card-title">Languages</h3>
+                    <ul class="skill-list">
+                        <li>Java</li><li>Python</li><li>JavaScript</li><li>PHP</li><li>SQL</li>
+                    </ul>
+                </article>
+                <article class="skill-category">
+                    <h3 class="inner-card-title">Web Development</h3>
+                    <ul class="skill-list">
+                        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li>
+                    </ul>
+                </article>
+                <article class="skill-category">
+                    <h3 class="inner-card-title">Database</h3>
+                    <ul class="skill-list">
+                        <li>MySQL</li><li>Supabase</li>
+                    </ul>
+                </article>
+                <article class="skill-category">
+                    <h3 class="inner-card-title">Tools</h3>
+                    <ul class="skill-list">
+                        <li>Git</li><li>GitHub</li><li>VS Code</li><li>Vite</li><li>REST APIs</li>
+                    </ul>
+                </article>
+                <article class="skill-category">
+                    <h3 class="inner-card-title">Concepts</h3>
+                    <ul class="skill-list">
+                        <li>Object-Oriented Programming</li><li>Algorithms &amp; Data Structures</li>
+                        <li>Database Design</li><li>Software Development</li><li>Problem Solving</li>
+                    </ul>
+                </article>
             </div>
         </section>
 
@@ -375,95 +285,102 @@ $conn->close();
             <h2 class="section-title">EDUCATION</h2>
             <div class="section-rule"></div>
 
-            <!-- CSS Grid: 3 columns -->
             <div class="edu-grid">
 
                 <article class="edu-card edu-light">
                     <h3 class="edu-institution">Queen Mary University of London</h3>
                     <p class="edu-degree"><strong>BSc Computer Science</strong></p>
-                    <p class="edu-dates">September 2025 - Present</p>
-                </article>
-
-                <article class="edu-card edu-light">
-                    <h3 class="edu-institution">PM Shri Kendriya Vidyalaya Nasik Road Camp</h3>
-                    <p class="edu-degree"><strong>12th Science (PCM, CS)</strong></p>
-                    <p class="edu-dates">2025</p>
-                </article>
-
-                <article class="edu-card edu-light">
-                    <h3 class="edu-institution">PM Shri Kendriya Vidyalaya Nasik Road Camp</h3>
-                    <p class="edu-degree"><strong>10th Standard</strong></p>
-                    <p class="edu-dates">2023</p>
+                    <p class="edu-dates">September 2025 - 2028 · Expected</p>
+                    <p class="edu-modules">
+                        Relevant modules: Object-Oriented Programming, Computer Systems and Networks,
+                        Logic and Discrete Structures, Fundamentals of Web Technology, Automata and Formal
+                        Languages, Information System Analysis, Procedural Programming and Software Engineering.
+                    </p>
                 </article>
 
             </div>
         </section>
 
 
-        <!-- Interests -->
-        <section id="interests" class="page-section interests-section">
-            <h2 class="section-title">INTERESTS</h2>
+        <section id="awards" class="page-section awards-section">
+            <h2 class="section-title">AWARDS</h2>
             <div class="section-rule"></div>
-
-            <!-- Flexbox row of interest cards -->
-            <div class="interests-grid">
-
-                <div class="interest-card">
-                    <span class="interest-icon">&#128111;</span>
-                    <p class="interest-name">Dance</p>
-                </div>
-
-                <div class="interest-card">
-                    <span class="interest-icon">&#128218;</span>
-                    <p class="interest-name">Reading</p>
-                </div>
-
-                <div class="interest-card">
-                    <span class="interest-icon">&#9917;</span>
-                    <p class="interest-name">Sports</p>
-                </div>
-
-                <div class="interest-card">
-                    <span class="interest-icon">&#127760;</span>
-                    <p class="interest-name">Net Surfing</p>
-                </div>
-
-                <div class="interest-card">
-                    <span class="interest-icon">&#127939;</span>
-                    <p class="interest-name">Running</p>
-                </div>
-
-            </div>
+            <ul class="awards-list">
+                <li>Gold Medalist (2×) · International Mathematics Olympiad</li>
+                <li>Bronze Medalist (2×) · National Science Olympiad</li>
+                <li>Ranked 1st at school level · International English Olympiad</li>
+            </ul>
         </section>
-
 
         <!-- Projects -->
         <section id="portfolio-projects" class="page-section projects-section">
             <h2 class="section-title">PROJECTS</h2>
             <div class="section-rule"></div>
 
-            <!-- CSS Grid: 3 columns -->
             <div class="projects-grid">
 
+                <article class="project-card project-card-featured">
+                    <div class="project-tag">Featured · Full-stack web application</div>
+                    <h3 class="project-title">GroupTrip Planner</h3>
+                    <p class="project-desc">
+                        A group trip management application for organising trips and shared expenses.
+                        Users can authenticate, create and view trips, manage trip details and members,
+                        record and split expenses, and review budget summaries. It uses Supabase for
+                        database integration and an Edge Function for protected user lookup.
+                    </p>
+                    <ul class="project-tech-list" aria-label="Technologies used">
+                        <li>React</li><li>Vite</li><li>JavaScript</li><li>Supabase</li>
+                    </ul>
+                    <a href="https://github.com/JanhaviG007/grouptrip-planner" target="_blank" rel="noopener noreferrer" class="project-link project-action">View on GitHub <span aria-hidden="true">&rarr;</span></a>
+                </article>
+
+                <article class="project-card project-card-research">
+                    <div class="project-tag">Women in STEM Hackathon · Data analysis and NLP</div>
+                    <h3 class="project-title">Wikipedia × ChatGPT Topic Intelligence</h3>
+                    <p class="project-desc">
+                        Worked in Team HackMates to investigate reader navigation after Wikipedia’s ChatGPT
+                        article, analysing 50,000+ clickstream records across 28 articles. Applied TF-IDF,
+                        LDA topic modelling, Ridge regression and network analysis to identify topic clusters
+                        and influential pages.
+                    </p>
+                    <ul class="project-tech-list" aria-label="Methods used">
+                        <li>Python</li><li>TF-IDF</li><li>LDA</li><li>Ridge Regression</li><li>PageRank</li><li>HITS</li>
+                    </ul>
+                    <p class="project-desc">Identified 7 latent topic clusters (R² = 0.41) and analysed a network of 7,343 graph edges.</p>
+                </article>
+
                 <article class="project-card">
-                    <div class="project-tag">Web Dev</div>
+                    <div class="project-tag">Java · Desktop application</div>
+                    <h3 class="project-title">Typing Race Simulator</h3>
+                    <p class="project-desc">
+                        A Java typing-race simulation with a graphical interface, race setup and
+                        live race display. The project includes screens for race results and personal
+                        bests, with attention to clear interaction and interface design.
+                    </p>
+                    <a href="https://github.com/JanhaviG007/TypingRaceSimulator" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub <span aria-hidden="true">&rarr;</span></a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-tag">Web Development</div>
                     <h3 class="project-title">Portfolio Website</h3>
-                    <p class="project-desc">A personal portfolio site built with HTML5, CSS and PHP showcasing skills, experience and a blog. Developed as part of the ECS417U module at QMUL.</p>
-                    <a href="https://github.com/JanhaviG007" target="_blank" class="project-link">View on GitHub &rarr;</a>
+                    <p class="project-desc">
+                        A university web-development project demonstrating frontend development,
+                        PHP backend functionality, MySQL database integration and responsive design.
+                    </p>
+                    <ul class="project-tech-list" aria-label="Technologies used">
+                        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li>
+                    </ul>
+                    <a href="html/portfolio.html" class="project-link">Project details <span aria-hidden="true">&rarr;</span></a>
                 </article>
 
                 <article class="project-card">
                     <div class="project-tag">Java</div>
-                    <h3 class="project-title">Simple Quiz - Java</h3>
-                    <p class="project-desc">A command-line quiz application built in Java. Tests the user with multiple-choice questions, tracks the score, and displays the final result at the end.</p>
-                    <a href="https://github.com/JanhaviG007/simple-quiz-java" target="_blank" class="project-link">View on GitHub &rarr;</a>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-tag">Data Analysis</div>
-                    <h3 class="project-title">Wikipedia Clickstream &amp; ChatGPT Trends</h3>
-                    <p class="project-desc">Data analysis project exploring Wikipedia clickstream patterns and changes in ChatGPT search trends over time, using Python for data processing and visualisation.</p>
-                    <a href="https://github.com/JanhaviG007/Wikipedia-Clickstream" target="_blank" class="project-link">View on GitHub &rarr;</a>
+                    <h3 class="project-title">Simple Quiz</h3>
+                    <p class="project-desc">
+                        A command-line Java quiz with multiple-choice questions, score tracking
+                        and a final result summary.
+                    </p>
+                    <a href="https://github.com/JanhaviG007/simple-quiz-java" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub <span aria-hidden="true">&rarr;</span></a>
                 </article>
 
             </div>
@@ -494,7 +411,7 @@ $conn->close();
                                     <div class="blog-post-title-row">
                                         <h3 class="blog-post-title"><?php echo htmlspecialchars($post['title']); ?></h3>
                                         <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
-                                            <button class="delete-btn" onclick="deletePost(<?php echo $post['id']; ?>)" title="Delete this post">×</button>
+                                            <button type="button" class="delete-btn" onclick="deletePost(<?php echo $post['id']; ?>)" title="Delete this post" aria-label="Delete this post">×</button>
                                         <?php endif; ?>
                                     </div>
                                     <p class="blog-post-date">
@@ -547,16 +464,16 @@ $conn->close();
             <div class="contact-grid">
                 <article class="contact-info">
                     <p class="contact-item">
-                        <span class="contact-label">Phone:</span>
-                        <span>+44 7767 520590</span>
-                    </p>
-                    <p class="contact-item">
                         <span class="contact-label">Email:</span>
                         <a href="mailto:janhavii.gavali01@gmail.com" class="contact-link">janhavii.gavali01@gmail.com</a>
                     </p>
                     <p class="contact-item">
-                        <span class="contact-label">Location:</span>
-                        <span>Mile End, London (currently)</span>
+                        <span class="contact-label">LinkedIn:</span>
+                        <a href="https://www.linkedin.com/in/janhavi-gavali/" class="contact-link" target="_blank" rel="noopener noreferrer">linkedin.com/in/janhavi-gavali</a>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-label">GitHub:</span>
+                        <a href="https://github.com/JanhaviG007" class="contact-link" target="_blank" rel="noopener noreferrer">github.com/JanhaviG007</a>
                     </p>
                 </article>
             </div>
@@ -577,11 +494,15 @@ $conn->close();
             <p class="footer-copy">&copy; 2026 Janhavi Gavali. All rights reserved.</p>
 
             <nav class="footer-nav">
-                <a href="index.php">About</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#leadership">Leadership</a>
                 <a href="html/skills.html">Skills</a>
                 <a href="html/education.html">Education</a>
+                <a href="#awards">Awards</a>
                 <a href="html/portfolio.html">Projects</a>
-                <a href="index.php#blog-section">Blog</a>
+                <a href="#contact">Contact</a>
+                <a href="#blog-section">Blog</a>
             </nav>
 
         </div>
