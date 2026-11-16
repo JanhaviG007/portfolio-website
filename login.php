@@ -7,6 +7,7 @@
     <meta name="description" content="Log in to manage your blog posts on Janhavi Gavali's portfolio website." />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/summer-theme.css" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -27,12 +28,15 @@
             </a>
             <nav class="main-nav" aria-label="Primary navigation">
                 <ul class="nav-list">
-                    <li><a href="index.php">About me</a></li>
+                    <li><a href="index.php#home">Home</a></li>
+                    <li><a href="index.php#about">About</a></li>
                     <li><a href="index.php#experience">Experience</a></li>
+                    <li><a href="index.php#leadership">Leadership</a></li>
                     <li><a href="html/skills.html">Skills</a></li>
                     <li><a href="html/education.html">Education</a></li>
-                    <li><a href="index.php#interests">Interests</a></li>
+                    <li><a href="index.php#awards">Awards</a></li>
                     <li><a href="html/portfolio.html">Projects</a></li>
+                    <li><a href="index.php#contact">Contact</a></li>
                     <li><a href="index.php#blog-section">Blog</a></li>
                 </ul>
             </nav>
@@ -133,10 +137,14 @@
             </a>
             <p class="footer-copy">&copy; 2026 Janhavi Gavali. All rights reserved.</p>
             <nav class="footer-nav">
-                <a href="index.php">About</a>
+                <a href="index.php#about">About</a>
+                <a href="index.php#experience">Experience</a>
+                <a href="index.php#leadership">Leadership</a>
                 <a href="html/skills.html">Skills</a>
                 <a href="html/education.html">Education</a>
+                <a href="index.php#awards">Awards</a>
                 <a href="html/portfolio.html">Projects</a>
+                <a href="index.php#contact">Contact</a>
                 <a href="index.php#blog-section">Blog</a>
             </nav>
         </div>
